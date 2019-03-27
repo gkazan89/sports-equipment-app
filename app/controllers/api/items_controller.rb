@@ -15,8 +15,11 @@ class Api::ItemsController < ApplicationController
       sport: params[:sport],
       price: params[:price],
       )
-    @item.save
-    render "show.json.jbuilder"
+    if @item.save
+      render "show.json.jbuilder"
+    else
+      render json:  {errors: @item.errors.full_messages}, statis: :unprocessable_entity
+    end
   end
 
   def update
