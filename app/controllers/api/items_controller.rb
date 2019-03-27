@@ -27,8 +27,11 @@ class Api::ItemsController < ApplicationController
     @item.name = params[:name] || @item.name
     @item.sport = params[:sport] || @item.sport
     @item.price = params[:price] || @item.price
-    @item.save
-    render "show.json.jbuilder"
+    if @item.save
+      render "show.json.jbuilder"
+    else
+      render json:  {errors: @item.errors.full_messages}, statis: :unprocessable_entity
+    end
   end
 
   def destroy
