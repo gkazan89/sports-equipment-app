@@ -17,4 +17,8 @@ class Item < ApplicationRecord
   def total
     price + tax
   end
+
+  def supplier
+    Supplier.find_by(id: supplier_id)
+  end
 end

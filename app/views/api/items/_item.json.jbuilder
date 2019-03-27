@@ -5,4 +5,5 @@ json.price item.price
 json.discounted item.discounted?
 json.tax item.tax
 json.total item.total
+json.supplier_name item.supplier.name
 json.message "HI!"
