@@ -1,6 +1,16 @@
 class Api::ItemsController < ApplicationController
   def index
     @items = Item.all
+    search_terms = params[:search]
+    if search_terms
+      @items = @items.where("name ILIKE ?", "%" + search_terms + "%")
+    end
+
+    if params[:sort_by_price]
+      @items = @items.order(price: :asc)
+    else
+      @items = @items.order(id: :asc)
+    end
     render "index.json.jbuilder"
   end
 
