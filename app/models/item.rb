@@ -25,4 +25,8 @@ class Item < ApplicationRecord
   def images
     Image.where(item_id: id)
   end
+
+  def image_urls
+    images.map {|image| image.url}
+  end
 end
