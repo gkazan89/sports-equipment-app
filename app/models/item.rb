@@ -4,6 +4,10 @@ class Item < ApplicationRecord
   validates :sport, presence: true
   validates :price, presence: true
   validates :price, numericality: {greater_than: 0}
+
+  belongs_to :supplier
+
+  has_many :images
   
 
   def discounted?
@@ -18,13 +22,13 @@ class Item < ApplicationRecord
     price + tax
   end
 
-  def supplier
-    Supplier.find_by(id: supplier_id)
-  end
+  # def supplier
+  #   Supplier.find_by(id: supplier_id)
+  # end
 
-  def images
-    Image.where(item_id: id)
-  end
+  # def images
+  #   Image.where(item_id: id)
+  # end
 
   def image_urls
     images.map {|image| image.url}
