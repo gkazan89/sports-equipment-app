@@ -1,5 +1,9 @@
 class Api::OrdersController < ApplicationController
   
+  def index
+    @orders = current_user.orders
+    render "index.json.jbuilder"
+  end
 
   def create
     item = Item.find_by(id: params[:item_id])
