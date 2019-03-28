@@ -21,4 +21,8 @@ class Item < ApplicationRecord
   def supplier
     Supplier.find_by(id: supplier_id)
   end
+
+  def images
+    Image.where(item_id: id)
+  end
 end
