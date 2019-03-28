@@ -13,3 +13,9 @@ Item.create(supplier_id: 1, name: "Hockey Stick", sport: "Hockey", price: 150)
 
 Supplier.create(name: "Nike")
 Supplier.create(name: "Adidas")
+
+Image.create(url: "http://spacecoastsports.com/wp-content/uploads/2014/06/sportsballs1.png", item_id: 2)
+Image.create(url: "http://spacecoastsports.com/wp-content/uploads/2014/06/sportsballs1.png", item_id: 3)
+Image.create(url: "http://spacecoastsports.com/wp-content/uploads/2014/06/sportsballs1.png", item_id: 4)
+Image.create(url: "http://spacecoastsports.com/wp-content/uploads/2014/06/sportsballs1.png", item_id: 5)
+Image.create(url: "http://spacecoastsports.com/wp-content/uploads/2014/06/sportsballs1.png", item_id: 6)
