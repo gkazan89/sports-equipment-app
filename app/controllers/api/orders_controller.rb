@@ -35,6 +35,4 @@ class Api::OrdersController < ApplicationController
     end
     render "show.json.jbuilder"
   end
-
-
 end
