@@ -9,6 +9,11 @@ class Api::ItemsController < ApplicationController
       @items = @items.where("name ILIKE ?", "%" + search_terms + "%")
     end
 
+    category_name = params[:category]
+    if category_name
+      @items = Category.find_by(name: category_name).items
+    end
+
     if params[:sort_by_price]
       @items = @items.order(price: :asc)
     else
