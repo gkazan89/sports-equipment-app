@@ -10,6 +10,8 @@ class Item < ApplicationRecord
   has_many :images
 
   has_many :orders
+  has_many :category_items
+  has_many :items, through: :category_items 
   
 
   def discounted?
