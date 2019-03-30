@@ -11,7 +11,7 @@ class Item < ApplicationRecord
 
   has_many :orders
   has_many :category_items
-  has_many :items, through: :category_items 
+  has_many :categories, through: :category_items 
   
 
   def discounted?
@@ -36,5 +36,9 @@ class Item < ApplicationRecord
 
   def image_urls
     images.map {|image| image.url}
+  end
+
+  def category_names
+    categories.map {|category| category.name}
   end
 end
