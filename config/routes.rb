@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
     post "/sessions" => "sessions#create"
 
+    get "/carted_items" => "carted_items#index"
     post "/carted_items" => "carted_items#create"
 
     get "/orders" => "orders#index"
