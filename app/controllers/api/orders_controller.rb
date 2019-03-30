@@ -8,31 +8,13 @@ class Api::OrdersController < ApplicationController
   end
 
   def create
-
-    carted_items = current_user.carted_items.where(status: "carted")
-
-    calculated_subtotal = 0
-    caluclated_tax = 0
-    calculated_total = 0
-
-    carted_items.each do |carted_item|
-      calculated_subtotal += carted_item.item.price * carted_item.quantity
-      caluclated_tax += carted_item.item.tax * carted_item.quantity
-      calculated_total += carted_item.item.total * carted_item.quantity
-    end
-
     @order = Order.new(
-      user_id: current_user.id,
-      subtotal: calculated_subtotal,
-      tax: caluclated_tax,
-      total: calculated_total
+      user_id: current_user.id
       )
     @order.save
-    carted_items.each do |carted_item|
-      carted_item.status = "purchased"
-      carted_item.order_id = @order.id
-      carted_item.save
-    end
+    carted_items = current_user.carted_items.where(status: "carted")
+    carted_items.update_all(status: "purchased", order_id: @order.id)
+    @order.update_all_totals
     render "show.json.jbuilder"
   end
 end
