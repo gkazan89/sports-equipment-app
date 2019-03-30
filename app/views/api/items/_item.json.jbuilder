@@ -7,6 +7,5 @@ json.tax item.tax
 json.total item.total
 json.supplier_name item.supplier.name
 json.images item.image_urls
-json.categories item.categories
 json.category_names item.category_names
 json.message "HI!"

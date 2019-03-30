@@ -32,6 +32,7 @@ class Api::ItemsController < ApplicationController
       name: params[:name],
       sport: params[:sport],
       price: params[:price],
+      supplier_id: params[:supplier_id]
       )
     if @item.save
       render "show.json.jbuilder"
