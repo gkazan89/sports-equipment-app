@@ -14,6 +14,10 @@ class Item < ApplicationRecord
   has_many :categories, through: :category_items 
   
 
+  has_many :carted_items
+  has_many :users, through: :carted_items
+  has_many :orders, through: :carted_items
+
   def discounted?
     price < 200
   end
