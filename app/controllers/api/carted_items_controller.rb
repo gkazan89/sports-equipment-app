@@ -6,6 +6,13 @@ class Api::CartedItemsController < ApplicationController
     render "index.json.jbuilder"
   end
 
+  def order_details 
+    @carted_items = current_user.carted_items.where(order_id: params[:id])
+    render "index.json.jbuilder"
+  end
+
+
+
   def create
     @carted_item = CartedItem.new(
       user_id: current_user.id,
@@ -23,5 +30,6 @@ class Api::CartedItemsController < ApplicationController
     carted_item.save
     render json: {message: "Successfully removed carted item!"}
   end
+
 
 end
