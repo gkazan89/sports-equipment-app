@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Supplier.create(name: "Nike")
+Supplier.create(name: "Adidas")
+
 Item.create(supplier_id: 2, name: "Tennis Racquet", sport: "Tennis", price: 200)
 Item.create(supplier_id: 1, name: "Hockey Stick", sport: "Hockey", price: 150)
 Item.create(supplier_id: 2, name: "Golf Club", sport: "Golf", price: 300)
@@ -17,8 +20,6 @@ Item.create(supplier_id: 1, name: "Soccer Ball", sport: "Soccer", price: 40)
 Item.create(supplier_id: 1, name: "Baseball Bat", sport: "Baseball", price: 250)
 
 
-Supplier.create(name: "Nike")
-Supplier.create(name: "Adidas")
 
 Image.create(url: "https://5.imimg.com/data5/TJ/YK/MY-38255385/vxt1040-500x500.jpg", item_id: 1)
 Image.create(url: "https://media.istockphoto.com/vectors/ice-hockey-stick-vector-id501648383?k=6&m=501648383&s=612x612&w=0&h=KQjTYckscVjNlXsmDGw5IJNXrnC5l9JzZl2kJbdN5SE=", item_id: 2)
